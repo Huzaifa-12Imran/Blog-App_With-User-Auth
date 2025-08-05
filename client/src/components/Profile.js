@@ -7,13 +7,11 @@ const Profile = () => {
   const [loading, setLoading] = useState(false);
   const [message, setMessage] = useState({ type: '', text: '' });
 
-  // Profile form state
   const [profileData, setProfileData] = useState({
     username: user?.username || '',
     email: user?.email || ''
   });
 
-  // Password form state
   const [passwordData, setPasswordData] = useState({
     currentPassword: '',
     newPassword: '',
@@ -28,7 +26,6 @@ const Profile = () => {
       ...prev,
       [name]: value
     }));
-    // Clear error when user starts typing
     if (errors[name]) {
       setErrors(prev => ({
         ...prev,
@@ -43,7 +40,6 @@ const Profile = () => {
       ...prev,
       [name]: value
     }));
-    // Clear error when user starts typing
     if (errors[name]) {
       setErrors(prev => ({
         ...prev,
@@ -175,7 +171,6 @@ const Profile = () => {
     <div className="min-h-screen bg-gradient-to-br from-gray-50 via-blue-50 to-indigo-50 bg-pattern py-8">
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="card shadow-strong overflow-hidden">
-          {/* Header */}
           <div className="bg-gradient-to-r from-blue-600 to-indigo-600 px-6 py-8">
             <div className="flex items-center space-x-6">
               <div className="w-20 h-20 bg-white bg-opacity-20 rounded-2xl flex items-center justify-center shadow-strong">
@@ -198,7 +193,6 @@ const Profile = () => {
             </div>
           </div>
 
-          {/* Tabs */}
           <div className="border-b border-gray-200">
             <nav className="flex space-x-8 px-6">
               <button
@@ -223,8 +217,7 @@ const Profile = () => {
               </button>
             </nav>
           </div>
-
-          {/* Content */}
+          
           <div className="p-6">
             {message.text && (
               <div className={`mb-6 p-4 rounded-xl flex items-center ${

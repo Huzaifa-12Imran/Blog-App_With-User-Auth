@@ -15,7 +15,6 @@ function AppContent() {
     <div className="min-h-screen">
       <Navbar />
       <Routes>
-        {/* Public routes */}
         <Route 
           path="/login" 
           element={isAuthenticated ? <Navigate to="/dashboard" replace /> : <Login />} 
@@ -24,8 +23,7 @@ function AppContent() {
           path="/register" 
           element={isAuthenticated ? <Navigate to="/dashboard" replace /> : <Register />} 
         />
-        
-        {/* Protected routes */}
+
         <Route 
           path="/dashboard" 
           element={
@@ -43,13 +41,11 @@ function AppContent() {
           } 
         />
         
-        {/* Default redirect */}
         <Route 
           path="/" 
           element={<Navigate to={isAuthenticated ? "/dashboard" : "/login"} replace />} 
         />
         
-        {/* Catch all route */}
         <Route 
           path="*" 
           element={<Navigate to={isAuthenticated ? "/dashboard" : "/login"} replace />} 

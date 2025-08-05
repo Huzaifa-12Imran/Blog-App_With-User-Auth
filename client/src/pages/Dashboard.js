@@ -54,7 +54,6 @@ export default function Dashboard() {
   return (
     <div className="min-h-screen bg-gradient-to-br from-gray-50 via-blue-50 to-indigo-50 bg-pattern py-8">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        {/* Welcome Section */}
         <div className="card shadow-strong p-8 mb-8">
           <div className="text-center">
             <div className="w-20 h-20 bg-gradient-to-r from-blue-600 to-indigo-600 rounded-2xl flex items-center justify-center mx-auto mb-6 shadow-strong">
@@ -90,8 +89,7 @@ export default function Dashboard() {
           editingStudent={editingStudent}
           setEditingStudent={setEditingStudent} 
         />
-        
-        {/* Get All Students Section */}
+
         <div className="card shadow-strong p-8">
           <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center mb-8 space-y-4 sm:space-y-0">
             <div>

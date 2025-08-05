@@ -23,7 +23,6 @@ export default function StudentForm({ fetchStudents, editingStudent, setEditingS
       } else {
         const res = await axios.post('/api/students', formData);
         if (res.data.success) {
-          // Success handled below
         }
       }
       setFormData({ name: '', age: '', email: '' });

@@ -124,8 +124,6 @@ export default function Navbar() {
           </div>
         </div>
       </div>
-
-      {/* Mobile dropdown backdrop */}
       {dropdownOpen && (
         <div
           className="fixed inset-0 z-40"
