@@ -124,37 +124,45 @@ export default function Dashboard() {
           
           {loading ? (
             <div className="text-center py-16">
-              <div className="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-6 animate-pulse">
-                <span className="text-2xl">⏳</span>
+              <div className="w-20 h-20 bg-gradient-to-r from-blue-100 to-indigo-100 rounded-2xl flex items-center justify-center mx-auto mb-6 shadow-soft">
+                <div className="loading-spinner w-8 h-8"></div>
               </div>
-              <h3 className="text-xl font-semibold text-gray-700 mb-2">Loading Students...</h3>
-              <p className="text-gray-500">Please wait while we fetch the student data.</p>
+              <h3 className="text-2xl font-bold gradient-text mb-2">Loading Students...</h3>
+              <p className="text-gray-600">Please wait while we fetch the student data.</p>
             </div>
           ) : error ? (
             <div className="text-center py-16">
-              <div className="w-16 h-16 bg-red-100 rounded-full flex items-center justify-center mx-auto mb-6">
-                <span className="text-2xl">❌</span>
+              <div className="w-20 h-20 bg-gradient-to-r from-red-100 to-red-200 rounded-2xl flex items-center justify-center mx-auto mb-6 shadow-soft">
+                <svg className="w-10 h-10 text-red-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8v4m0 4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                </svg>
               </div>
-              <h3 className="text-xl font-semibold text-red-700 mb-2">Error Loading Students</h3>
-              <p className="text-red-500 mb-6">{error}</p>
+              <h3 className="text-2xl font-bold text-red-700 mb-2">Error Loading Students</h3>
+              <p className="text-red-600 mb-6">{error}</p>
               <button 
                 onClick={fetchStudents}
-                className="bg-red-500 text-white px-6 py-2 rounded-xl hover:bg-red-600 transition-all duration-200"
+                className="bg-gradient-to-r from-red-500 to-red-600 hover:from-red-600 hover:to-red-700 text-white px-6 py-3 rounded-xl transition-all duration-200 shadow-soft hover:shadow-medium flex items-center space-x-2 mx-auto"
               >
-                Try Again
+                <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15" />
+                </svg>
+                <span>Try Again</span>
               </button>
             </div>
           ) : students.length === 0 ? (
             <div className="text-center py-16">
-              <div className="w-24 h-24 bg-gray-100 rounded-full flex items-center justify-center mx-auto mb-6">
-                <span className="text-4xl">🎓</span>
+              <div className="w-24 h-24 bg-gradient-to-r from-gray-100 to-gray-200 rounded-2xl flex items-center justify-center mx-auto mb-6 shadow-soft">
+                <svg className="w-12 h-12 text-gray-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.746 0 3.332.477 4.5 1.253v13C19.832 18.477 18.246 18 16.5 18c-1.746 0-3.332.477-4.5 1.253" />
+                </svg>
               </div>
-              <h3 className="text-xl font-semibold text-gray-700 mb-2">No Students Yet</h3>
-              <p className="text-gray-500 mb-6">Get started by adding your first student above!</p>
-              <div className="bg-blue-50 border border-blue-200 rounded-xl p-4 max-w-md mx-auto">
-                <p className="text-blue-700 text-sm">
-                  💡 <strong>Tip:</strong> Use the form above to add students with their name, age, and email address.
-                </p>
+              <h3 className="text-2xl font-bold gradient-text mb-2">No Students Yet</h3>
+              <p className="text-gray-600 mb-6">Get started by adding your first student above!</p>
+              <div className="status-info p-4 max-w-md mx-auto">
+                <svg className="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                </svg>
+                <strong>Tip:</strong> Use the form above to add students with their name, age, and email address.
               </div>
             </div>
           ) : (

@@ -227,11 +227,18 @@ const Profile = () => {
           {/* Content */}
           <div className="p-6">
             {message.text && (
-              <div className={`mb-6 p-4 rounded-lg ${
+              <div className={`mb-6 p-4 rounded-xl flex items-center ${
                 message.type === 'success' 
-                  ? 'bg-green-50 border border-green-200 text-green-700' 
-                  : 'bg-red-50 border border-red-200 text-red-700'
+                  ? 'status-success' 
+                  : 'status-error'
               }`}>
+                <svg className="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  {message.type === 'success' ? (
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m6-2a9 9 0 11-18 0 9 9 0 0118 0z" />
+                  ) : (
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8v4m0 4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                  )}
+                </svg>
                 {message.text}
               </div>
             )}
