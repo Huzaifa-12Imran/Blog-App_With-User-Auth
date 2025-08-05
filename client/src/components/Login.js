@@ -72,10 +72,15 @@ const Login = () => {
   };
 
   return (
-    <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-blue-50 to-indigo-100 py-12 px-4 sm:px-6 lg:px-8">
+    <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-blue-50 via-indigo-50 to-purple-50 bg-pattern py-12 px-4 sm:px-6 lg:px-8">
       <div className="max-w-md w-full space-y-8">
-        <div className="bg-white rounded-2xl shadow-xl p-8 animate-fade-in">
+        <div className="card shadow-strong p-8">
           <div className="text-center">
+            <div className="w-16 h-16 bg-gradient-to-r from-blue-600 to-indigo-600 rounded-2xl flex items-center justify-center mx-auto mb-6 shadow-medium">
+              <svg className="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
+              </svg>
+            </div>
             <h2 className="text-3xl font-bold gradient-text mb-2">
               Welcome Back
             </h2>
@@ -86,7 +91,10 @@ const Login = () => {
 
           <form className="space-y-6" onSubmit={handleSubmit}>
             {errors.general && (
-              <div className="bg-red-50 border border-red-200 text-red-700 px-4 py-3 rounded-lg text-sm">
+              <div className="status-error px-4 py-3 rounded-xl text-sm mb-4 w-full justify-center">
+                <svg className="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8v4m0 4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                </svg>
                 {errors.general}
               </div>
             )}
@@ -102,9 +110,7 @@ const Login = () => {
                 autoComplete="email"
                 value={formData.email}
                 onChange={handleChange}
-                className={`w-full px-4 py-3 border rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-200 ${
-                  errors.email ? 'border-red-300 bg-red-50' : 'border-gray-300'
-                }`}
+                className={errors.email ? 'input-error' : 'input-field'}
                 placeholder="Enter your email"
               />
               {errors.email && (
@@ -124,9 +130,7 @@ const Login = () => {
                   autoComplete="current-password"
                   value={formData.password}
                   onChange={handleChange}
-                  className={`w-full px-4 py-3 border rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-200 pr-12 ${
-                    errors.password ? 'border-red-300 bg-red-50' : 'border-gray-300'
-                  }`}
+                  className={`${errors.password ? 'input-error' : 'input-field'} pr-12`}
                   placeholder="Enter your password"
                 />
                 <button
@@ -155,18 +159,20 @@ const Login = () => {
               <button
                 type="submit"
                 disabled={loading}
-                className="w-full flex justify-center py-3 px-4 border border-transparent rounded-lg shadow-sm text-sm font-medium text-white bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-700 hover:to-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 disabled:opacity-50 disabled:cursor-not-allowed transition-all duration-200 transform hover:scale-105"
+                className="w-full btn-primary disabled:opacity-50 disabled:cursor-not-allowed"
               >
                 {loading ? (
-                  <div className="flex items-center">
-                    <svg className="animate-spin -ml-1 mr-3 h-5 w-5 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
-                      <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4"></circle>
-                      <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
-                    </svg>
+                  <div className="flex items-center justify-center">
+                    <div className="loading-spinner mr-3"></div>
                     Signing in...
                   </div>
                 ) : (
-                  'Sign In'
+                  <div className="flex items-center justify-center">
+                    <svg className="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M11 16l-4-4m0 0l4-4m-4 4h14m-5 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h7a3 3 0 013 3v1" />
+                    </svg>
+                    Sign In
+                  </div>
                 )}
               </button>
             </div>

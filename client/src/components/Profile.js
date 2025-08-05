@@ -172,14 +172,14 @@ const Profile = () => {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-blue-50 to-indigo-100 py-8">
+    <div className="min-h-screen bg-gradient-to-br from-gray-50 via-blue-50 to-indigo-50 bg-pattern py-8">
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="bg-white rounded-2xl shadow-xl overflow-hidden animate-fade-in">
+        <div className="card shadow-strong overflow-hidden">
           {/* Header */}
           <div className="bg-gradient-to-r from-blue-600 to-indigo-600 px-6 py-8">
-            <div className="flex items-center space-x-4">
-              <div className="w-16 h-16 bg-white bg-opacity-20 rounded-full flex items-center justify-center">
-                <svg className="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <div className="flex items-center space-x-6">
+              <div className="w-20 h-20 bg-white bg-opacity-20 rounded-2xl flex items-center justify-center shadow-strong">
+                <svg className="w-10 h-10 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
                 </svg>
               </div>

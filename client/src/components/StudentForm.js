@@ -35,14 +35,29 @@ export default function StudentForm({ fetchStudents, editingStudent, setEditingS
   };
 
   return (
-    <div className="bg-white rounded-2xl shadow-xl p-8 mb-8 border border-gray-100">
+    <div className="card shadow-strong p-8 mb-8">
       <div className="mb-6">
-        <h2 className="text-2xl font-bold text-gray-800 mb-2">
-          {editingStudent ? '✏️ Edit Student' : '➕ Add New Student'}
-        </h2>
-        <p className="text-gray-600">
-          {editingStudent ? 'Update student information below' : 'Fill in the details to add a new student'}
-        </p>
+        <div className="flex items-center space-x-3 mb-4">
+          <div className={`w-12 h-12 rounded-xl flex items-center justify-center shadow-medium ${
+            editingStudent ? 'bg-gradient-to-r from-orange-500 to-amber-600' : 'bg-gradient-to-r from-green-500 to-emerald-600'
+          }`}>
+            <svg className="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              {editingStudent ? (
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z" />
+              ) : (
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 6v6m0 0v6m0-6h6m-6 0H6" />
+              )}
+            </svg>
+          </div>
+          <div>
+            <h2 className="text-2xl font-bold gradient-text">
+              {editingStudent ? 'Edit Student' : 'Add New Student'}
+            </h2>
+            <p className="text-gray-600">
+              {editingStudent ? 'Update student information below' : 'Fill in the details to add a new student'}
+            </p>
+          </div>
+        </div>
       </div>
       
       <form className="space-y-6" onSubmit={handleSubmit}>
@@ -53,8 +68,8 @@ export default function StudentForm({ fetchStudents, editingStudent, setEditingS
               name="name" 
               value={formData.name} 
               onChange={handleChange} 
-              placeholder="e.g., Reginald Pemberton"
-              className="w-full p-4 border-2 border-gray-200 rounded-xl focus:border-blue-500 focus:ring-2 focus:ring-blue-200 transition-all duration-200 bg-gray-50 focus:bg-white" 
+              placeholder="e.g., John Doe"
+              className="input-field" 
               required
             />
           </div>
@@ -69,7 +84,7 @@ export default function StudentForm({ fetchStudents, editingStudent, setEditingS
               type="number"
               min="16"
               max="100"
-              className="w-full p-4 border-2 border-gray-200 rounded-xl focus:border-blue-500 focus:ring-2 focus:ring-blue-200 transition-all duration-200 bg-gray-50 focus:bg-white" 
+              className="input-field" 
               required
             />
           </div>
@@ -82,7 +97,7 @@ export default function StudentForm({ fetchStudents, editingStudent, setEditingS
               onChange={handleChange} 
               placeholder="e.g., student@university.edu"
               type="email"
-              className="w-full p-4 border-2 border-gray-200 rounded-xl focus:border-blue-500 focus:ring-2 focus:ring-blue-200 transition-all duration-200 bg-gray-50 focus:bg-white" 
+              className="input-field" 
               required
             />
           </div>
@@ -93,16 +108,26 @@ export default function StudentForm({ fetchStudents, editingStudent, setEditingS
             <button 
               type="button"
               onClick={() => setEditingStudent(null)}
-              className="px-6 py-3 bg-gray-500 text-white rounded-xl hover:bg-gray-600 transition-all duration-200 font-semibold shadow-lg hover:shadow-xl transform hover:-translate-y-0.5"
+              className="btn-secondary"
             >
+              <svg className="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+              </svg>
               Cancel
             </button>
           )}
           <button 
             type="submit"
-            className="px-8 py-3 bg-gradient-to-r from-blue-600 to-indigo-600 text-white rounded-xl hover:from-blue-700 hover:to-indigo-700 transition-all duration-200 font-semibold shadow-lg hover:shadow-xl transform hover:-translate-y-0.5 flex items-center space-x-2"
+            className={editingStudent ? "btn-primary bg-gradient-to-r from-orange-500 to-amber-600 hover:from-orange-600 hover:to-amber-700" : "btn-success"}
           >
-            <span>{editingStudent ? '✏️ Update' : '➕ Add'} Student</span>
+            <svg className="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              {editingStudent ? (
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z" />
+              ) : (
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 6v6m0 0v6m0-6h6m-6 0H6" />
+              )}
+            </svg>
+            {editingStudent ? 'Update' : 'Add'} Student
           </button>
         </div>
       </form>
