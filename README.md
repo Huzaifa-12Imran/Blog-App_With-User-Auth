@@ -16,15 +16,15 @@ A full-stack web application for creating and managing blog posts with secure us
 
 ## 📝 Blog Management Features
 
-- **Create Blog Posts** ➕ - Write and publish your thoughts
-- **Rich Content Editor** ✏️ - Full-featured blog post creation
-- **Draft System** 📄 - Save drafts and publish when ready
-- **Categories & Tags** 🏷️ - Organize your content effectively
-- **Public Blog Feed** 📋 - Browse all published posts
-- **Like & Comment System** ❤️ - Engage with other writers
-- **Search & Filter** 🔍 - Find content easily
-- **Responsive Design** 📱 - Works on all devices
-- **Featured Images** 🖼️ - Add visual appeal to your posts
+- **Create Blog Posts** - Write and publish your thoughts
+- **Rich Content Editor** - Full-featured blog post creation
+- **Draft System** - Save drafts and publish when ready
+- **Categories & Tags** - Organize your content effectively
+- **Public Blog Feed** - Browse all published posts
+- **Like & Comment System** - Engage with other writers
+- **Search & Filter** - Find content easily
+- **Responsive Design** - Works on all devices
+- **Featured Images** - Add visual appeal to your posts
 
 ## Tech Stack
 
@@ -215,8 +215,8 @@ You can test the API endpoints using Postman:
 - Body (JSON):
 ```json
 {
-  "username": "johndoe",
-  "email": "john@example.com",
+  "username": "liameee",
+  "email": "liam@example.com",
   "password": "password123"
 }
 ```
@@ -227,7 +227,7 @@ You can test the API endpoints using Postman:
 - Body (JSON):
 ```json
 {
-  "email": "john@example.com",
+  "email": "liam@example.com",
   "password": "password123"
 }
 ```
@@ -282,22 +282,22 @@ Your BlogSpace application is now **fully functional** with complete blog manage
 - **Responsive Design:** Works perfectly on all devices
 
 ## API Testing Results:
-- POST /api/auth/register - User registration ✅
-- POST /api/auth/login - User login ✅
-- GET /api/blogs/public - Public blog feed ✅
-- POST /api/blogs/ - Create blog post ✅
-- GET /api/blogs/ - Get user's blogs ✅
-- PUT /api/blogs/:id - Update blog post ✅
-- DELETE /api/blogs/:id - Delete blog post ✅
-- POST /api/blogs/:id/like - Like/unlike blog ✅
-- POST /api/blogs/:id/comments - Add comment ✅
+- POST /api/auth/register - User registration 
+- POST /api/auth/login - User login 
+- GET /api/blogs/public - Public blog feed 
+- POST /api/blogs/ - Create blog post 
+- GET /api/blogs/ - Get user's blogs 
+- PUT /api/blogs/:id - Update blog post 
+- DELETE /api/blogs/:id - Delete blog post 
+- POST /api/blogs/:id/like - Like/unlike blog 
+- POST /api/blogs/:id/comments - Add comment 
 
 ## Key Features:
-- 🔐 **Secure Authentication** with JWT tokens
-- 📝 **Rich Blog Editor** with categories and tags
-- 🌐 **Public Blog Feed** for discovering content
-- 💬 **Social Features** - likes and comments
-- 🔍 **Search & Filter** functionality
-- 📱 **Responsive Design** for all devices
-- 🎨 **Modern UI** with Tailwind CSS
-- ⚡ **Real-time Updates** between frontend and backend
+- **Secure Authentication** with JWT tokens
+- **Rich Blog Editor** with categories and tags
+- **Public Blog Feed** for discovering content
+- **Social Features** - likes and comments
+- **Search & Filter** functionality
+- **Responsive Design** for all devices
+- **Modern UI** with Tailwind CSS
+- **Real-time Updates** between frontend and backend
