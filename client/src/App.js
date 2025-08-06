@@ -2,6 +2,7 @@ import React from 'react';
 import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
 import { AuthProvider, useAuth } from './contexts/AuthContext';
 import Dashboard from './pages/Dashboard';
+import PublicBlogs from './pages/PublicBlogs';
 import Navbar from './components/Navbar';
 import Login from './components/Login';
 import Register from './components/Register';
@@ -15,6 +16,10 @@ function AppContent() {
     <div className="min-h-screen">
       <Navbar />
       <Routes>
+        {/* Public Routes */}
+        <Route path="/" element={<PublicBlogs />} />
+        <Route path="/blogs" element={<PublicBlogs />} />
+        
         <Route 
           path="/login" 
           element={isAuthenticated ? <Navigate to="/dashboard" replace /> : <Login />} 
@@ -24,6 +29,7 @@ function AppContent() {
           element={isAuthenticated ? <Navigate to="/dashboard" replace /> : <Register />} 
         />
 
+        {/* Protected Routes */}
         <Route 
           path="/dashboard" 
           element={
@@ -42,13 +48,8 @@ function AppContent() {
         />
         
         <Route 
-          path="/" 
-          element={<Navigate to={isAuthenticated ? "/dashboard" : "/login"} replace />} 
-        />
-        
-        <Route 
           path="*" 
-          element={<Navigate to={isAuthenticated ? "/dashboard" : "/login"} replace />} 
+          element={<Navigate to="/" replace />} 
         />
       </Routes>
     </div>
